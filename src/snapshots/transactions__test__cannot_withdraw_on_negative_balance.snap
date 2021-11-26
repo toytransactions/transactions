@@ -1,0 +1,11 @@
+---
+source: src/main.rs
+expression: all_output
+
+---
+client,available,held,total,locked
+1,10,20,30,false
+Stderr:
+failed to process `TransactionInfo { kind: Withdrawal, client_id: ClientId(1), tx_id: TransactionId(8), amount: Some(4) }`: invalid price provided
+failed to process `TransactionInfo { kind: Withdrawal, client_id: ClientId(1), tx_id: TransactionId(10), amount: Some(3) }`: invalid price provided
+
