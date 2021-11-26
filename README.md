@@ -11,6 +11,15 @@ Code structure:
 `main.rs`: Handeles I/O, parsing and simply calls into the `lib.rs` library 
 to perform the actual processing.
 
+### Design Considerations
+
+  - The design of the solution focuses on simplicity, safety and code-readability. 
+  - Where possible, the solution uses strongly typed aliases to avoid issues with mixing up variables.
+  - Prices are represented with rust_decimal::Decimal, to avoid floating point issues.
+  - The code is designed to return errors gracefully instead of panicking
+    (one place where it falls short is that it stores all transactions in-memory and 
+    memory allocation is considered infallible).
+
 ### Ambiguities & Assumptions
  - Should all transactions be disallowed for a frozen account?
    This implementation assumes that is the case.
