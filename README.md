@@ -7,6 +7,7 @@ Run tests:
 
 Code structure:
 `lib.rs`: Business logic of transaction processing and account management.
+
 `main.rs`: Handeles I/O, parsing and simply calls into the `lib.rs` library 
 to perform the actual processing.
 
@@ -25,10 +26,7 @@ to perform the actual processing.
  - Should there be a way to reverse a account freeze?
    This implementation assumes there is no such method. Once an account is frozen it is never un-frozen.
  - Should we allow a transaction to be disputed multiple times?
-   This implementation assumes that the transaction state is this:
-             Withdraw/Deposit                  Dispute             Resolve/Chargeback
-     Start -------------------->  Processed  ----------> InDispute -----------------> DisputeHandled
-    So, in this implementation a transaction can only be disputed once.
+   In this implementation a transaction can only be disputed once.   
  - This implementation assumes that the inputs are to be processed in a streaming-fashion. 
    i.e. we should not look ahead at future transactions to determine the outcome of the current
    transaction.
